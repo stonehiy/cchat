@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service android:name=".PushService" />
+        <service android:name=".bufnetty.BufPushService" />
 
         <activity android:name=".ui.MainActivity">
             <intent-filter>

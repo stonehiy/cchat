@@ -1,7 +1,8 @@
 syntax = "proto3";
 package com.stonehiy.protobuf.proto; //定义protobuf的包名称空间，对应C++,C#的nanmespace，Java的package
 option java_outer_classname = "ChatInfo";
-
+/*资料连接*/
+/*https://my.oschina.net/cxh3905?tab=newest&catalogId=387288*/
 enum MSG {
     OK = 0;
     Login_Request = 10001;

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package com.stonehiy.protobuf.proto;
 option java_outer_classname = "UserInfo";
-
+/*暂时无用*/
 message User {
     string uuid = 1; //uuid
     int32 id = 2; //id

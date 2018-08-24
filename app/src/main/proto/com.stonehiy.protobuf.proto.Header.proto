@@ -2,7 +2,7 @@ syntax = "proto3";
 package com.stonehiy.protobuf.proto;
 option java_outer_classname = "HeaderInfo";
 
-
+/*暂时无用*/
 message Header {
     uint32 version = 1; //前4个字节是version
     uint32 magicNum = 2; //接下来的4个字节是个“魔法数字（magic_num）“，用来保证数据错位或丢包问题，常见的做法是，包头放几个约定好的特殊字符，包尾放几个约定好的特殊字符 约定好，发给你的协议，某几个字节位置，是0x 01020304 ，才是正常报文；

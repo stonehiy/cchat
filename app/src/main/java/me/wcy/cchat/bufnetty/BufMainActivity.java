@@ -1,4 +1,4 @@
-package me.wcy.cchat.ui;
+package me.wcy.cchat.bufnetty;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,15 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.stonehiy.protobuf.proto.ChatInfo;
-
 import me.wcy.cchat.AppCache;
 import me.wcy.cchat.R;
 import me.wcy.cchat.model.CMessage;
 import me.wcy.cchat.model.Callback;
 import me.wcy.cchat.model.MsgType;
+import me.wcy.cchat.ui.LoginActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class BufMainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView terminal;
     private EditText etAccount;
     private EditText etMessage;

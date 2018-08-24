@@ -1,5 +1,6 @@
 package me.wcy.cchat;
 
+import me.wcy.cchat.bufnetty.BufPushService;
 import me.wcy.cchat.model.LoginInfo;
 
 /**
@@ -7,6 +8,7 @@ import me.wcy.cchat.model.LoginInfo;
  */
 public class AppCache {
     private static PushService service;
+    private static BufPushService bufService;
     private static LoginInfo myInfo;
 
     public static PushService getService() {
@@ -15,6 +17,10 @@ public class AppCache {
 
     public static void setService(PushService service) {
         AppCache.service = service;
+    }
+
+    public static void setBufService(BufPushService service) {
+        AppCache.bufService = service;
     }
 
     public static LoginInfo getMyInfo() {
