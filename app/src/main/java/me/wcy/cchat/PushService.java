@@ -40,8 +40,8 @@ import me.wcy.cchat.model.MsgType;
  */
 public class PushService extends Service {
     private static final String TAG = "PushService";
-    private static final String HOST = "10.240.78.82";
-    private static final int PORT = 8300;
+    private static final String HOST = "192.168.0.123";
+    private static final int PORT = 9999;
 
     private SocketChannel socketChannel;
     private Callback<Void> loginCallback;
@@ -83,9 +83,9 @@ public class PushService extends Service {
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
                         ChannelPipeline pipeline = socketChannel.pipeline();
                         pipeline.addLast(new IdleStateHandler(0, 30, 0));
-                        pipeline.addLast(new ObjectEncoder());
-                        pipeline.addLast(new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
-                        pipeline.addLast(new ChannelHandle());
+                        pipeline.addLast("decoder", new ObjectEncoder());
+                        pipeline.addLast("encoder", new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
+                        pipeline.addLast("handler", new ChannelHandle());
                     }
                 })
                 .connect(new InetSocketAddress(HOST, PORT))

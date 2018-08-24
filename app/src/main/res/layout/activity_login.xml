@@ -13,11 +13,13 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/input"
         android:hint="请输入账号"
+        android:text="test1"
         android:inputType="textEmailAddress"
         android:singleLine="true"
         android:textSize="14sp" />
 
     <EditText
+        android:text="123456"
         android:id="@+id/et_token"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
