@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.stonehiy.protobuf.proto;
+option java_outer_classname = "UserInfo";
+
+message User {
+    string uuid = 1; //uuid
+    int32 id = 2; //id
+    string userName = 3; //用户名
+    string passWord = 4; //密码
+    string nickName = 5; //昵称
+    string createTime = 6; //创建时间
+    string updateTime = 7; //更新时间
+    int32 gender = 8; //性别
+    string lastLoginip = 9; //最后登录IP
+    string lastLoginTime = 10; //最后登录时间
+    string avatar = 11; //头像
+    int32 deleted = 12; //是否删除
+
+}
+
+

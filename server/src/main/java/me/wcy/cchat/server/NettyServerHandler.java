@@ -2,6 +2,8 @@ package me.wcy.cchat.server;
 
 import com.google.gson.Gson;
 
+import java.util.Calendar;
+
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -24,7 +26,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
         Gson gson = new Gson();
         CMessage message = gson.fromJson(msg, CMessage.class);
         if (message.getType() == MsgType.PING) {
-            System.out.println("received ping from " + message.getFrom());
+            System.out.println(Calendar.getInstance().getTime().toString() + " received ping from " + message.getFrom());
             Channel channel = NettyChannelMap.get(message.getFrom());
             if (channel != null) {
                 channel.writeAndFlush(message.toJson());
@@ -50,9 +52,13 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
                 channel.isWritable();
                 channel.writeAndFlush(message.toJson()).addListener((ChannelFutureListener) future -> {
                     if (!future.isSuccess()) {
-                        System.out.println("send msg to " + message.getTo() + " failed");
+                        System.out.println(message.getFrom() + " send msg to " + message.getTo() + " failed");
+                    } else {
+                        System.out.println(message.getFrom() + " send msg to " + message.getTo() + " success");
                     }
                 });
+            } else {
+                System.out.println(message.getFrom() + " send msg to " + message.getTo() + " failed : user not exist or user off line");
             }
         }
         ReferenceCountUtil.release(msg);
